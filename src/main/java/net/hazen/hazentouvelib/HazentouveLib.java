@@ -1,6 +1,7 @@
 package net.hazen.hazentouvelib;
 
 import net.hazen.hazentouvelib.Registries.*;
+import net.hazen.hazentouvelib.Spells.HLSpellRegistries;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -32,6 +33,8 @@ public class HazentouveLib {
         HLBlockRegistry.register(modEventBus);
         HLEffects.register(modEventBus);
         HLSounds.register(modEventBus);
+
+        HLSpellRegistries.register(modEventBus);
 
         HLAttributeRegistry.register(modEventBus);
         HLSchoolRegistry.register(modEventBus);
