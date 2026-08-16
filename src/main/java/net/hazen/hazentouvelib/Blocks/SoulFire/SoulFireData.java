@@ -3,6 +3,7 @@ package net.hazen.hazentouvelib.Blocks.SoulFire;
 import com.mojang.serialization.Codec;
 import net.hazen.hazentouvelib.Datagen.HLTags;
 import net.hazen.hazentouvelib.Registries.HLDamageTypes;
+import net.hazen.hazentouvelib.Registries.HLSounds;
 import net.hazen.hazentouvelib.Setup.HLAttachmentUtil;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.particles.ParticleTypes;
@@ -129,6 +130,10 @@ public class SoulFireData {
             float damage = Math.max(1.0F, entity.getMaxHealth() * getDamageHealthScaling(entity));
             if (damage > 0.0F) {
                 entity.hurt(HLDamageTypes.soulFire(entity.level()), damage);
+                try {
+                    entity.playSound(HLSounds.SOUL_FIRE_HURT.get(), 1.0F, 1.0F);
+                } catch (NoSuchMethodError ignored) {
+                }
             }
         }
         soulFireTicks -= entity.getFluidHeight(FluidTags.WATER) > 0 ? 3 : 1;

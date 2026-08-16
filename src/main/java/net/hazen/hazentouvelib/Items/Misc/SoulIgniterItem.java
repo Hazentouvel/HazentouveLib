@@ -2,6 +2,7 @@ package net.hazen.hazentouvelib.Items.Misc;
 
 import net.hazen.hazentouvelib.Blocks.SoulFire.SoulFireBlock;
 import net.hazen.hazentouvelib.Registries.HLBlockRegistry;
+import net.hazen.hazentouvelib.Registries.HLSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -70,7 +71,7 @@ public class SoulIgniterItem extends FlintAndSteelItem {
 
         if (SoulFireBlock.canBePlacedAt(world, blockOnSide, context.getHorizontalDirection())) {
             world.playSound(
-                player, blockOnSide, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F,
+                player, blockOnSide, HLSounds.SOUL_FIRE_IGNITE.get(), SoundSource.BLOCKS, 1.0F,
                 world.getRandom()
                      .nextFloat() * 0.4F + 0.8F
             );

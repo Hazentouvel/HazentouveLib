@@ -25,6 +25,11 @@ public class HLSounds {
     public static DeferredHolder<SoundEvent, SoundEvent> COSMIC_CAST_LONG = registerSoundEvent("cosmic_cast_long");
 
 
+    public static DeferredHolder<SoundEvent, SoundEvent> SOUL_FIRE_AMBIENT = registerSoundEvent("soul_fire_ambient");
+    public static DeferredHolder<SoundEvent, SoundEvent> SOUL_FIRE_HURT = registerSoundEvent("soul_fire_hurt");
+    public static DeferredHolder<SoundEvent, SoundEvent> SOUL_FIRE_IGNITE = registerSoundEvent("soul_fire_ignite");
+
+
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name)
     {
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent

@@ -8,5 +8,22 @@
     "sounds": [
       "hazentouvelib:cosmic_cast_long"
     ]
+  },
+  "soul_fire_ambient": {
+    "sounds": [
+      "hazentouvelib:soul_fire_ambient"
+    ]
+  },
+  "soul_fire_hurt": {
+    "sounds": [
+      "hazentouvelib:soul_fire_hurt_1",
+      "hazentouvelib:soul_fire_hurt_2",
+      "hazentouvelib:soul_fire_hurt_3"
+    ]
+  },
+  "soul_fire_ignite": {
+    "sounds": [
+      "hazentouvelib:soul_fire_ignite"
+    ]
   }
 }
