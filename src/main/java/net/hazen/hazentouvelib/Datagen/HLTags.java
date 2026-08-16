@@ -8,7 +8,6 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 public class HLTags {
@@ -242,6 +241,9 @@ public class HLTags {
     public static final TagKey<EntityType<?>> SPAWNS_OF_ENDER = TagKey
             .create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(HazentouveLib.MOD_ID, "spawns_of_ender"));
 
+    public static final TagKey<EntityType<?>> SOUL_FIRE_IMMUNE = TagKey
+            .create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(HazentouveLib.MOD_ID, "soul_fire_immune"));
+
     public static class Blocks {
 
         public static final TagKey<Block> NEEDS_MITRHIL_TOOL = BlockTags
@@ -249,6 +251,9 @@ public class HLTags {
 
         public static final TagKey<Block> INCORRECT_FOR_MITHRIL_TOOl = BlockTags
                 .create(ResourceLocation.parse(ResourceLocation.fromNamespaceAndPath(HazentouveLib.MOD_ID, "incorrect_for_mithril_tool").toString()));
+
+        public static final TagKey<Block> SOUL_FIRE_BASE_BLOCK = BlockTags
+                .create(ResourceLocation.parse(ResourceLocation.fromNamespaceAndPath(HazentouveLib.MOD_ID, "soul_fire_base_block").toString()));
 
     }
 

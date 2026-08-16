@@ -29,6 +29,7 @@ public class HazentouveLib {
 
         HLCreativeModeTabs.register(modEventBus);
         HLItemRegistry.register(modEventBus);
+        HLBlockRegistry.register(modEventBus);
         HLEffects.register(modEventBus);
         HLSounds.register(modEventBus);
 

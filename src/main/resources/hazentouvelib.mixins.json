@@ -5,7 +5,9 @@
   "plugin": "net.hazen.hazentouvelib.Mixins.HLMixinPlugin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "Entities.EnderManMixin"
+    "Entities.EnderManMixin",
+    "Blocks.AbstractFireMixin",
+    "Client.EntityRenderDispatcherMixin"
   ],
   "injectors": {
     "defaultRequire": 1
