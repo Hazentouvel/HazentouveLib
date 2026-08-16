@@ -25,8 +25,8 @@ public class HLBlockTagProvider extends BlockTagsProvider {
         ;
 
         tag(HLTags.Blocks.SOUL_FIRE_BASE_BLOCK)
-                .add(Block.byItem(Items.SOUL_SAND))
-                .add(Block.byItem(Items.SOUL_SOIL))
+                .add(Block.byItem(Items.SCULK_CATALYST))
+                .add(Block.byItem(Items.SCULK))
         ;
 
     }

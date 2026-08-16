@@ -1,5 +1,6 @@
 package net.hazen.hazentouvelib.Setup;
 
+import io.redspace.ironsspellbooks.api.entity.IMagicEntity;
 import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.mobs.abstract_spell_casting_mob.AbstractSpellCastingMob;
@@ -23,14 +24,11 @@ public class HLServerEvents {
     public static void onPlayerCastEvent(SpellPreCastEvent event)
     {
         var entity = event.getEntity();
-
-        // Only run on server
         if (entity.level().isClientSide()) return;
 
-        // Hexed check
         if (entity.hasEffect(HLEffects.HEXED))
         {
-            float percentDamage = 0.25F;
+            float percentDamage = 0.15F;
 
             float maxHealth = entity.getMaxHealth();
             float damage = Math.max(1.0F, maxHealth * percentDamage);
@@ -39,7 +37,6 @@ public class HLServerEvents {
 
             entity.hurt(damageSource, damage);
 
-            // Only play sound if it's a player (optional)
             if (entity instanceof ServerPlayer player) {
                 player.level().playSound(
                         null, player.getX(), player.getY(), player.getZ(),
@@ -50,55 +47,11 @@ public class HLServerEvents {
         }
     }
 
-
-    @SubscribeEvent
-    public static void onSpellcasterMobTick(EntityTickEvent.Post event) {
-        if (!(event.getEntity() instanceof AbstractSpellCastingMob mob)) {
-            return;
-        }
-
-        if (mob.level().isClientSide()) {
-            return;
-        }
-
-        if (!mob.isCasting()) {
-            return;
-        }
-
-        // Run only once near the start of the cast
-        if (mob.getMagicData().getCastDurationRemaining()
-                != mob.getMagicData().getCastDuration()) {
-            return;
-        }
-
-        if (mob.hasEffect(HLEffects.HEXED)) {
-            float damage = Math.max(1.0F, mob.getMaxHealth() * 0.25F);
-
-            DamageSource damageSource = new DamageSource(
-                    DamageSources.getHolderFromResource(mob, HLDamageTypes.CORRUPT_MAGIC)
-            );
-
-            mob.hurt(damageSource, damage);
-
-            mob.level().playSound(
-                    null,
-                    mob.getX(),
-                    mob.getY(),
-                    mob.getZ(),
-                    SoundEvents.SOUL_ESCAPE,
-                    SoundSource.HOSTILE,
-                    0.5f,
-                    1.0f
-            );
-        }
-    }
-
     @SubscribeEvent
     public static void onEntityTick(EntityTickEvent.Post event) {
         if (!(event.getEntity() instanceof LivingEntity living)) {
                     return;
         }
-
         if (living.level().isClientSide()) {
                     SoulFireData.clientTick(living);
         } else {

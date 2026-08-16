@@ -49,6 +49,8 @@ import java.util.stream.Collectors;
 
 public class SoulFireBlock extends BaseFireBlock {
 
+    public static final int MAX_SOUL_FIRE_TICKS = 30;
+
     public static final MapCodec<SoulFireBlock> CODEC = simpleCodec(SoulFireBlock::new);
 
     public static boolean EXPLOSION_CAUSES_SOUL_FIRE_FLAG = false;
@@ -217,7 +219,17 @@ public class SoulFireBlock extends BaseFireBlock {
     public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
         if (entity instanceof LivingEntity livingEntity) {
             entity.hurt(HLDamageTypes.soulFire(world, null), DAMAGE);
-            SoulFireData.addSoulFireTicks(livingEntity, 3);
+
+            long currentTicks = SoulFireData.getSoulFireTicks(livingEntity);
+
+            if (currentTicks < MAX_SOUL_FIRE_TICKS) {
+                int ticksToAdd = (int) Math.min(
+                        3L,
+                        MAX_SOUL_FIRE_TICKS - currentTicks
+                );
+
+                SoulFireData.addSoulFireTicks(livingEntity, ticksToAdd);
+            }
         }
     }
 

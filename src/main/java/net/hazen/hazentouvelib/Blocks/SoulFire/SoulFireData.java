@@ -233,4 +233,8 @@ public class SoulFireData {
             return TYPE;
         }
     }
+
+    public static long getSoulFireTicks(LivingEntity entity) {
+        return entity.getData(ATTACHMENT);
+    }
 }
