@@ -76,6 +76,12 @@ public class SoulFireData {
 
     public static void setSoulFireTicks(LivingEntity entity, long ticks) {
         entity.setData(ATTACHMENT, ticks);
+        // Mirror to vanilla fire ticks so client-side overlays (first-person) show burning
+        try {
+            entity.setRemainingFireTicks((int) ticks);
+        } catch (NoSuchMethodError ignored) {
+            // In case mapping differs, ignore to avoid crash
+        }
         sync(entity);
     }
 
@@ -89,6 +95,10 @@ public class SoulFireData {
         }
 
         entity.setData(ATTACHMENT, entity.getData(ATTACHMENT) + ticks);
+        try {
+            entity.setRemainingFireTicks(entity.getData(ATTACHMENT).intValue());
+        } catch (NoSuchMethodError ignored) {
+        }
         sync(entity);
     }
 
@@ -101,6 +111,7 @@ public class SoulFireData {
             return false;
 
         entity.setData(ATTACHMENT, 0L);
+        try { entity.setRemainingFireTicks(0); } catch (NoSuchMethodError ignored) {}
         sync(entity);
         return true;
     }
@@ -115,21 +126,13 @@ public class SoulFireData {
             return;
         if (entity.getType().is(HLTags.SOUL_FIRE_IMMUNE)) {
             entity.setData(ATTACHMENT, 0L);
+            try { entity.setRemainingFireTicks(0); } catch (NoSuchMethodError ignored) {}
             sync(entity);
             return;
         }
         if (entity.tickCount % SOUL_FIRE_DAMAGE_INTERVAL == 0) {
-
-            float damage = SOUL_FIRE_DAMAGE;
-
-            MobEffectInstance fireResistance =
-                    entity.getEffect(MobEffects.FIRE_RESISTANCE);
-
-            if (fireResistance != null) {
-                int amplifier = fireResistance.getAmplifier();
-                damage *= (float) Math.pow(0.5D, amplifier + 1);
-            }
-
+            // scale damage with max health, applying equipment/enchantment penalties inside getDamagePenalties
+            float damage = Math.max(1.0F, entity.getMaxHealth() * getDamageHealthScaling(entity));
             if (damage > 0.0F) {
                 entity.hurt(HLDamageTypes.soulFire(entity.level()), damage);
             }
@@ -137,6 +140,10 @@ public class SoulFireData {
         soulFireTicks -= entity.getFluidHeight(FluidTags.WATER) > 0 ? 3 : 1;
 
         entity.setData(ATTACHMENT, Math.max(soulFireTicks, 0L));
+
+        try {
+            entity.setRemainingFireTicks(entity.getData(ATTACHMENT).intValue());
+        } catch (NoSuchMethodError ignored) {}
 
         if (soulFireTicks <= 0) {
             sync(entity);

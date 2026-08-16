@@ -5,6 +5,8 @@ import io.redspace.ironsspellbooks.entity.spells.fiery_dagger.FieryDaggerRendere
 import net.hazen.hazentouvelib.Entities.HnSEntityRegistry;
 import net.hazen.hazentouvelib.Entities.SoulFlameBolt.SoulflameBoltRenderer;
 import net.hazen.hazentouvelib.HazentouveLib;
+import net.hazen.hazentouvelib.Particle.HLGenericParticle;
+import net.hazen.hazentouvelib.Registries.HLParticleRegistry;
 import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -25,8 +27,9 @@ public class HnSClientSetup {
     public static void registerParticles(RegisterParticleProvidersEvent event)
     {
 
-        //event.registerSpriteSet(HnSParticleRegistry.ENDER_EMBER_PARTICLE.get(), HnSGenericParticle.Provider::new);
-        //event.registerSpriteSet(HnSParticleRegistry.ENDER_EXPLOSION_PARTICLE.get(), HnSGenericParticle.Provider::new);
+        event.registerSpriteSet(HLParticleRegistry.ENDER_EMBER_PARTICLE.get(), HLGenericParticle.Provider::new);
+        event.registerSpriteSet(HLParticleRegistry.ENDER_EXPLOSION_PARTICLE.get(), HLGenericParticle.Provider::new);
+        event.registerSpriteSet(HLParticleRegistry.SOUL_FLAME_EXPLOSION_PARTICLE.get(), HLGenericParticle.Provider::new);
 
     }
 }

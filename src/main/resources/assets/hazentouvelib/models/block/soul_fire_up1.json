@@ -1,5 +1,6 @@
 {
   "parent": "minecraft:block/template_fire_up",
+  "render_type": "minecraft:cutout",
   "textures": {
     "fire": "hazentouvelib:block/soul_fire_0"
   }

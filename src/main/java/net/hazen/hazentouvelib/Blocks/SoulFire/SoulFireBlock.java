@@ -217,7 +217,7 @@ public class SoulFireBlock extends BaseFireBlock {
     public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
         if (entity instanceof LivingEntity livingEntity) {
             entity.hurt(HLDamageTypes.soulFire(world, null), DAMAGE);
-            SoulFireData.addSoulFireTicks(livingEntity, 5);
+            SoulFireData.addSoulFireTicks(livingEntity, 4);
         }
     }
 

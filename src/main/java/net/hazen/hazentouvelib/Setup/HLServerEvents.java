@@ -5,10 +5,12 @@ import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.mobs.abstract_spell_casting_mob.AbstractSpellCastingMob;
 import net.hazen.hazentouvelib.Registries.HLDamageTypes;
 import net.hazen.hazentouvelib.Registries.HLEffects;
+import net.hazen.hazentouvelib.Blocks.SoulFire.SoulFireData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
@@ -88,6 +90,19 @@ public class HLServerEvents {
                     0.5f,
                     1.0f
             );
+        }
+    }
+
+    @SubscribeEvent
+    public static void onEntityTick(EntityTickEvent.Post event) {
+        if (!(event.getEntity() instanceof LivingEntity living)) {
+                    return;
+        }
+
+        if (living.level().isClientSide()) {
+                    SoulFireData.clientTick(living);
+        } else {
+                    SoulFireData.serverTick(living);
         }
     }
 }

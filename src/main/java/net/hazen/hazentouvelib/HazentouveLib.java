@@ -1,5 +1,7 @@
 package net.hazen.hazentouvelib;
 
+import net.hazen.hazentouvelib.Data.HLDataAttachments;
+import net.hazen.hazentouvelib.Entities.HnSEntityRegistry;
 import net.hazen.hazentouvelib.Registries.*;
 import net.hazen.hazentouvelib.Spells.HLSpellRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -17,7 +19,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(HazentouveLib.MOD_ID)
@@ -30,11 +31,14 @@ public class HazentouveLib {
 
         HLCreativeModeTabs.register(modEventBus);
         HLItemRegistry.register(modEventBus);
+        HLDataAttachments.register(modEventBus);
         HLBlockRegistry.register(modEventBus);
         HLEffects.register(modEventBus);
+        HLParticleRegistry.register(modEventBus);
         HLSounds.register(modEventBus);
 
         HLSpellRegistries.register(modEventBus);
+        HnSEntityRegistry.register(modEventBus);
 
         HLAttributeRegistry.register(modEventBus);
         HLSchoolRegistry.register(modEventBus);

@@ -1,6 +1,6 @@
 {
-  "replace": false,
   "values": [
+    "hazentouvelib:soul_fire",
     "hazentouvelib:corrupt_magic"
   ]
 }
