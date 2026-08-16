@@ -3,6 +3,8 @@ package net.hazen.hazentouvelib.Datagen;
 import net.hazen.hazentouvelib.HazentouveLib;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -20,6 +22,11 @@ public class HLBlockTagProvider extends BlockTagsProvider {
 
         tag(HLTags.Blocks.NEEDS_MITRHIL_TOOL)
                 .addTag(Tags.Blocks.NEEDS_NETHERITE_TOOL)
+        ;
+
+        tag(HLTags.Blocks.SOUL_FIRE_BASE_BLOCK)
+                .add(Block.byItem(Items.SOUL_SAND))
+                .add(Block.byItem(Items.SOUL_SOIL))
         ;
 
     }

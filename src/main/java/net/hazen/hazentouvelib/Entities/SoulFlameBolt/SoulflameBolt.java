@@ -9,6 +9,7 @@ import java.util.Optional;
 
 
 import net.hazen.hazentouvelib.Entities.HnSEntityRegistry;
+import net.hazen.hazentouvelib.Registries.HLParticleRegistry;
 import net.hazen.hazentouvelib.Spells.HLSpellRegistries;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
@@ -63,7 +64,7 @@ public class SoulflameBolt extends AbstractMagicProjectile {
     }
 
     public void impactParticles(double x, double y, double z) {
-        MagicManager.spawnParticles(this.level, ParticleTypes.LAVA, x, y, z, 5, 0.1, 0.1, 0.1, (double)0.25F, true);
+        MagicManager.spawnParticles(this.level, HLParticleRegistry.SOUL_FLAME_LAVA_PARTICLE.get(), x, y, z, 5, 0.1, 0.1, 0.1, (double)0.25F, true);
     }
 
     public void trailParticles() {

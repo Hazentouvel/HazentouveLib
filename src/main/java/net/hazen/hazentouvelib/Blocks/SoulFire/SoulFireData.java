@@ -33,11 +33,8 @@ import java.util.Optional;
 import net.minecraft.core.registries.Registries;
 
 public class SoulFireData {
-    // 1% of max health as damage every tick as a base.
     public static final float BASE_PERCENT_DAMAGE = 0.01F;
-    // Base damage reduction applied by fire resistance
     public static final float FIRE_RESISTANCE_DAMAGE_RESISTANCE = 0.25F;
-    // Per-level damage reduction added by fire prot. Caps at 50%
     public static final float FIRE_PROT_DAMAGE_RESISTANCE = 0.05F;
 
     public static Optional<Holder<Enchantment>> getEntry(
@@ -76,11 +73,9 @@ public class SoulFireData {
 
     public static void setSoulFireTicks(LivingEntity entity, long ticks) {
         entity.setData(ATTACHMENT, ticks);
-        // Mirror to vanilla fire ticks so client-side overlays (first-person) show burning
         try {
             entity.setRemainingFireTicks((int) ticks);
         } catch (NoSuchMethodError ignored) {
-            // In case mapping differs, ignore to avoid crash
         }
         sync(entity);
     }
@@ -131,7 +126,6 @@ public class SoulFireData {
             return;
         }
         if (entity.tickCount % SOUL_FIRE_DAMAGE_INTERVAL == 0) {
-            // scale damage with max health, applying equipment/enchantment penalties inside getDamagePenalties
             float damage = Math.max(1.0F, entity.getMaxHealth() * getDamageHealthScaling(entity));
             if (damage > 0.0F) {
                 entity.hurt(HLDamageTypes.soulFire(entity.level()), damage);
@@ -155,7 +149,6 @@ public class SoulFireData {
     }
 
     public static float getDamagePenalties(LivingEntity entity) {
-        //fire prot has a cap of 50% DR, requiring fire protection 10 on an armor piece
         float fireProt = Math.min(
             FIRE_PROT_DAMAGE_RESISTANCE * getEquipmentLevel(
                 entity.level()
@@ -167,19 +160,15 @@ public class SoulFireData {
                                    .orElse(-1) + 1;
         float fireRes = 0;
 
-        // flat 25% for a start on fire res
         if (fireResLevel > 0)
             fireRes = FIRE_RESISTANCE_DAMAGE_RESISTANCE;
 
-        //Fire resistance has diminishing returns
         for (int i = 1; i < fireResLevel; i++) {
             fireRes += (float) (0.05 * (i) + (0.25F * Math.pow(0.5F, i)));
         }
 
-        //Fire immune entities can have a lil res, as a treat
         float immunityReduction = entity.fireImmune() ? 0.25F : 0;
 
-        //Soul fire has an overall cap of 90% DR
         return Math.max(1 - (fireRes + fireProt + immunityReduction), 0.10F);
     }
 

@@ -7,7 +7,8 @@
   "mixins": [
     "Entities.EnderManMixin",
     "Blocks.AbstractFireMixin",
-    "Client.EntityRenderDispatcherMixin"
+    "Client.EntityRenderDispatcherMixin",
+    "Client.InGameOverlayRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

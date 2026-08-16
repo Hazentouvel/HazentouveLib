@@ -57,7 +57,7 @@ public class SoulIgniterItem extends FlintAndSteelItem {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
         super.appendHoverText(stack, context, tooltip, type);
-        tooltip.add(Component.translatable("item.pastel.primordial_lighter.tooltip")
+        tooltip.add(Component.translatable("item.hazentouvelib.soul_igniter.description")
                              .withStyle(ChatFormatting.GRAY));
     }
 

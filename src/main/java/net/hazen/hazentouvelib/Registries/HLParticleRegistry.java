@@ -1,6 +1,7 @@
 package net.hazen.hazentouvelib.Registries;
 
 import net.hazen.hazentouvelib.HazentouveLib;
+import net.hazen.hazentouvelib.Particle.SoulFlameLavaParticle;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
@@ -21,6 +22,9 @@ public class HLParticleRegistry {
     // Soul Fire Explosion Particle
     public static final Supplier<SimpleParticleType> SOUL_FLAME_EXPLOSION_PARTICLE = PARTICLE_TYPES.register("soul_flame_explosion_particle",
             () -> new SimpleParticleType(false));
+    // Soul Fire Lava Particle
+    public static final Supplier<SimpleParticleType> SOUL_FLAME_LAVA_PARTICLE = PARTICLE_TYPES.register("soul_flame_lava_particle",
+                    () -> new SimpleParticleType(false));
 
 
     public static void register(IEventBus eventBus)

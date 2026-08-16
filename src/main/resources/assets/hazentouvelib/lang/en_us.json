@@ -39,6 +39,7 @@
   "item.hazentouvelib.cosmic_rune": "Cosmic Rune",
 
   "item.hazentouvelib.soul_igniter": "Soul Igniter",
+  "item.hazentouvelib.soul_igniter.description": "Lights soul fire.",
 
   "block.hazentouvelib.soul_fire": "Soul Fire",
 
@@ -67,6 +68,8 @@
 
   "attribute.hazentouvelib.cosmic_spell_power": "Cosmic Spell Power",
   "attribute.hazentouvelib.cosmic_magic_resist": "Cosmic Magic Resistance",
+
+  "death.attack.soul_fire": "%1$s burnt to death",
 
   "death.attack.radiance_magic": "%1$s was overwhelmed by the light...",
   "death.attack.shadow_magic": "%1$s was consumed by darkness",
