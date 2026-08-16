@@ -115,6 +115,9 @@ public class SoulFireData {
     public static final float SOUL_FIRE_DAMAGE = 2.0F;
     public static final int SOUL_FIRE_DAMAGE_INTERVAL = 10;
 
+    @OnlyIn(Dist.CLIENT)
+    public static SoulFireBurnSound soundInstance;
+
     public static void serverTick(LivingEntity entity) {
         long soulFireTicks = entity.getData(ATTACHMENT);
 
@@ -125,16 +128,6 @@ public class SoulFireData {
             try { entity.setRemainingFireTicks(0); } catch (NoSuchMethodError ignored) {}
             sync(entity);
             return;
-        }
-        if (entity.tickCount % SOUL_FIRE_DAMAGE_INTERVAL == 0) {
-            float damage = Math.max(1.0F, entity.getMaxHealth() * getDamageHealthScaling(entity));
-            if (damage > 0.0F) {
-                entity.hurt(HLDamageTypes.soulFire(entity.level()), damage);
-                try {
-                    entity.playSound(HLSounds.SOUL_FIRE_HURT.get(), 1.0F, 1.0F);
-                } catch (NoSuchMethodError ignored) {
-                }
-            }
         }
         soulFireTicks -= entity.getFluidHeight(FluidTags.WATER) > 0 ? 3 : 1;
 
