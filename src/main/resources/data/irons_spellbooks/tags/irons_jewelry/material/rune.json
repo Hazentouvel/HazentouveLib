@@ -1,8 +1,7 @@
 {
-  "replace": false,
   "values": [
-    "hazentouvelib:radiance_rune",
-    "hazentouvelib:cosmic_rune",
-    "hazentouvelib:shadow_rune"
+    {"id":"hazentouvelib:radiance_rune","required":false},
+    {"id":"hazentouvelib:cosmic_rune","required":false},
+    {"id":"hazentouvelib:shadow_rune","required":false}
   ]
 }
