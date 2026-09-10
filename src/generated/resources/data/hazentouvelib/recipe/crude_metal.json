@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "minecraft:raw_iron",
+    "minecraft:coal",
+    "minecraft:coal"
+  ],
+  "result": {
+    "id": "hazentouvelib:crude_metal"
+  }
+}

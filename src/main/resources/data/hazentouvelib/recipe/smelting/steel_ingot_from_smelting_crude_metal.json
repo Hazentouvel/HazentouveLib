@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 240,
+  "experience": 0.7,
+  "group": "iron_ingot",
+  "ingredient": "hazentouvelib:crude_metal",
+  "result": {
+    "id": "hazentouvelib:steel_ingot"
+  }
+}

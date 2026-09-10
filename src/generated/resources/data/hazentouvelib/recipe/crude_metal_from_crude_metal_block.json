@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "hazentouvelib:crude_metal"
+  ],
+  "result": {
+    "count": 9,
+    "id": "hazentouvelib:crude_metal"
+  }
+}

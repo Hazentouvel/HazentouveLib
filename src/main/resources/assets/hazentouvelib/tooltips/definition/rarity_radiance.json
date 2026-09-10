@@ -1,8 +1,0 @@
-{
-  "priority": 50,
-  "style": "hazentouvelib:radiance_style",
-  "filter": {
-    "type": "obscure_tooltips:rarity",
-    "rarity": "hazentouvelib_rarity_radiance"
-  }
-}

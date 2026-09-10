@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hazentouvelib:item/materials/steel_nugget"
+  }
+}
