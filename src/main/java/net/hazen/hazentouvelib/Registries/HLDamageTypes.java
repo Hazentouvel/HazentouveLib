@@ -36,16 +36,16 @@ public class HLDamageTypes {
     }
 
     public static DamageSource soulFire(Level world) {
-        return new PrimordialFireDamageSource(world, null);
+        return new SoulFireDamageSource(world, null);
     }
 
     public static DamageSource soulFire(Level world, @Nullable LivingEntity attacker) {
-        return new PrimordialFireDamageSource(world, attacker);
+        return new SoulFireDamageSource(world, attacker);
     }
 
-    public static class PrimordialFireDamageSource extends DamageSource {
+    public static class SoulFireDamageSource extends DamageSource {
 
-        public PrimordialFireDamageSource(Level world, @Nullable LivingEntity attacker) {
+        public SoulFireDamageSource(Level world, @Nullable LivingEntity attacker) {
             super(world.damageSources().damageTypes.getHolderOrThrow(SOUL_FIRE), attacker);
         }
     }
