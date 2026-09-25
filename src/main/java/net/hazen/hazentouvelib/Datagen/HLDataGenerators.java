@@ -1,7 +1,7 @@
-package net.hazen.hazentouvelib.Data;
+package net.hazen.hazentouvelib.Datagen;
 
-import net.hazen.hazentouvelib.Data.Tags.HLBlockTagsProvider;
-import net.hazen.hazentouvelib.Data.Tags.HLItemTagsProvider;
+import net.hazen.hazentouvelib.Datagen.Tags.HLBlockTagsProvider;
+import net.hazen.hazentouvelib.Datagen.Tags.HLItemTagsProvider;
 import net.hazen.hazentouvelib.HazentouveLib;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;

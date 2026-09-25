@@ -2,10 +2,10 @@ package net.hazen.hazentouvelib.Blocks.Fire;
 
 import com.google.common.collect.ImmutableMap;
 import com.mojang.serialization.MapCodec;
-import net.hazen.hazentouvelib.Datagen.HLTags;
+import net.hazen.hazentouvelib.Data.Tags.HLTags;
 import net.hazen.hazentouvelib.Registries.HLBlockRegistry;
 import net.hazen.hazentouvelib.Registries.HLDamageTypes;
-import net.hazen.hazentouvelib.Registries.HLSounds;
+import net.hazen.hazentouvelib.Registries.HLSoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -368,7 +368,7 @@ public class SoulFireBlock extends BaseFireBlock {
                     (double) pos.getX() + 0.5,
                     (double) pos.getY() + 0.5,
                     (double) pos.getZ() + 0.5,
-                        HLSounds.SOUL_FIRE_AMBIENT.get(),
+                        HLSoundRegistry.SOUL_FIRE_AMBIENT.get(),
                     SoundSource.BLOCKS,
                     0.175F + random.nextFloat(),
                     random.nextFloat() * 0.7F + 0.3F,

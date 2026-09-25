@@ -1,10 +1,7 @@
 package net.hazen.hazentouvelib.Blocks.Fire;
 
 import com.mojang.serialization.Codec;
-import net.hazen.hazentouvelib.Datagen.HLTags;
-import net.hazen.hazentouvelib.Registries.HLDamageTypes;
-import net.hazen.hazentouvelib.Registries.HLSounds;
-import net.hazen.hazentouvelib.Setup.HLAttachmentUtil;
+import net.hazen.hazentouvelib.Data.Tags.HLTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.FriendlyByteBuf;
@@ -123,7 +120,7 @@ public class SoulFireData {
 
         if (soulFireTicks <= 0)
             return;
-        if (entity.getType().is(HLTags.SOUL_FIRE_IMMUNE)) {
+        if (entity.getType().is(HLTags.Entities.SOUL_FIRE_IMMUNE)) {
             entity.setData(ATTACHMENT, 0L);
             try { entity.setRemainingFireTicks(0); } catch (NoSuchMethodError ignored) {}
             sync(entity);

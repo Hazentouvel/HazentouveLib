@@ -3,6 +3,7 @@ package net.hazen.hazentouvelib;
 import net.hazen.hazentouvelib.Registries.HLBlockRegistry;
 import net.hazen.hazentouvelib.Registries.HLCreativeModeTabs;
 import net.hazen.hazentouvelib.Registries.HLItemRegistry;
+import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -23,6 +24,11 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 public class HazentouveLib {
     public static final String MOD_ID = "hazentouvelib";
     public static final Logger LOGGER = LogUtils.getLogger();
+    private static final Identifier BASE_ID = Identifier.fromNamespaceAndPath(MOD_ID, "");
+    /// Create a new [Identifier] with this mod's namespace
+    public static Identifier id(String path) {
+        return BASE_ID.withPath(path);
+    }
     public HazentouveLib(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
         NeoForge.EVENT_BUS.register(this);

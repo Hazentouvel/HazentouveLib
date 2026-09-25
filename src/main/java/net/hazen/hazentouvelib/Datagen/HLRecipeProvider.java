@@ -1,4 +1,4 @@
-package net.hazen.hazentouvelib.Data;
+package net.hazen.hazentouvelib.Datagen;
 
 import net.hazen.hazentouvelib.HazentouveLib;
 import net.hazen.hazentouvelib.Registries.HLItemRegistry;

@@ -1,10 +1,12 @@
-package net.hazen.hazentouvelib.Data.Tags;
+package net.hazen.hazentouvelib.Datagen.Tags;
 
 import net.hazen.hazentouvelib.HazentouveLib;
 import net.hazen.hazentouvelib.Registries.HLBlockRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 
 import java.util.concurrent.CompletableFuture;
@@ -24,6 +26,10 @@ public class HLBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(HLBlockRegistry.STEEL_BLOCK.get())
                 .add(HLBlockRegistry.CRUDE_METAL_BLOCK.get())
+        ;
+
+        tag(HLTags.Blocks.SOUL_FIRE_BASE_BLOCK)
+                .add(Block.byItem(Items.SCULK_CATALYST))
         ;
     }
 }

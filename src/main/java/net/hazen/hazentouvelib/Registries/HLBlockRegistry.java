@@ -2,7 +2,9 @@ package net.hazen.hazentouvelib.Registries;
 
 import net.hazen.hazentouvelib.HazentouveLib;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoulFireBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
@@ -29,6 +31,9 @@ public class HLBlockRegistry {
                     .strength(0.8F)
                     .sound(SoundType.STONE)
             ));
+
+    public static final DeferredBlock<Block> SOUL_FIRE = BLOCKS.registerBlock("soul_fire",
+            () -> new SoulFireBlock()
 
 
     public static void register(IEventBus modEventBus){
