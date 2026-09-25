@@ -6,17 +6,35 @@ import net.hazen.hazentouvelib.HazentouveLib;
 import net.hazen.hazentouvelib.Items.Misc.SoulIgniterItem;
 import net.hazen.hazentouvelib.Rarities.HLRarities;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.component.Unbreakable;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.Collection;
 
 public class HLItemRegistry {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(HazentouveLib.MOD_ID);
+
+    /*
+    *** Materials
+     */
+
+    public static final DeferredItem<Item> CRUDE_METAL = ITEMS.registerItem(
+            "crude_metal",
+            Item::new);
+
+    public static final DeferredItem<Item> STEEL_INGOT = ITEMS.registerItem(
+            "steel_ingot",
+            Item::new);
+
+    public static final DeferredItem<Item> STEEL_NUGGET = ITEMS.registerItem(
+            "steel_nugget",
+            Item::new);
 
 
     /*
@@ -62,6 +80,17 @@ public class HLItemRegistry {
     public static final DeferredHolder<Item, Item> COSMIC_RUNE = ITEMS.register("cosmic_rune",
              () -> new Item(new Item.Properties())
     );
+
+    /*
+     *** Blocks
+     */
+
+    public static final DeferredItem<BlockItem> STEEL_BLOCK_ITEM =
+            ITEMS.registerSimpleBlockItem("steel_block", HLBlockRegistry.STEEL_BLOCK);
+
+    public static final DeferredItem<BlockItem> CRUDE_METAL_BLOCK_ITEM =
+            ITEMS.registerSimpleBlockItem("crude_metal_block", HLBlockRegistry.CRUDE_METAL_BLOCK);
+
 
     /*
     *** Misc

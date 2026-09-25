@@ -19,6 +19,16 @@ public class HLCreativeModeTabs {
                     .title(Component.translatable("creativetab.hazentouvelib.hazentouvelib_materials"))
                     .displayItems((itemDisplayParameters, output) -> {
                         /*
+                        *** Materials
+                         */
+
+                        output.accept(HLItemRegistry.CRUDE_METAL.get());
+                        output.accept(HLItemRegistry.STEEL_INGOT.get());
+                        output.accept(HLItemRegistry.STEEL_NUGGET.get());
+                        output.accept(HLItemRegistry.STEEL_BLOCK_ITEM.get());
+                        output.accept(HLItemRegistry.CRUDE_METAL_BLOCK_ITEM.get());
+
+                        /*
                         *** Upgrade Orbs
                          */
                         output.accept(HLItemRegistry.RADIANCE_UPGRADE_ORB.get());

@@ -1,5 +1,4 @@
 {
-
   "key.hazentouvelib.group": "HazentouveLib Abilities",
   "key.hazentouvelib.ability_1": "Ability 1",
   "key.hazentouvelib.ability_2": "Ability 2",
@@ -30,6 +29,11 @@
   "rarity.hazentouvelib_rarity_hydro.name": "Aquatic",
   "rarity.hazentouvelib_rarity_fireblossom.name": "Fireblossomed",
 
+
+  "item.hazentouvelib.steel_ingot": "Steel Ingot",
+  "item.hazentouvelib.crude_metal": "Crude Metal",
+  "item.hazentouvelib.steel_nugget": "Steel Nugget",
+
   "item.hazentouvelib.radiance_upgrade_orb": "Radiance Upgrade Orb",
   "item.hazentouvelib.shadow_upgrade_orb": "Shadow Upgrade Orb",
   "item.hazentouvelib.cosmic_upgrade_orb": "Cosmic Upgrade Orb",
@@ -42,6 +46,8 @@
   "item.hazentouvelib.soul_igniter.description": "Lights soul fire.",
 
   "block.hazentouvelib.soul_fire": "Soul Fire",
+  "block.hazentouvelib.steel_block": "Steel Block",
+  "block.hazentouvelib.crude_metal_block": "Crude Metal Block",
 
   "curios.modifiers.wing": "When bearing these wings: ",
 
@@ -59,6 +65,7 @@
   "material.hazentouvelib.rune_radiance": "Radiance Rune",
   "material.hazentouvelib.rune_shadow": "Shadow Rune",
   "material.hazentouvelib.rune_cosmic": "Cosmic Rune",
+  "material.hazentouvelib.steel": "Steel",
 
   "attribute.hazentouvelib.radiance_spell_power": "Radiance Spell Power",
   "attribute.hazentouvelib.radiance_magic_resist": "Radiance Magic Resistance",

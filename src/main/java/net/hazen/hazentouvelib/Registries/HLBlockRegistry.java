@@ -4,6 +4,7 @@ import net.hazen.hazentouvelib.Blocks.SoulFire.SoulFireBlock;
 import net.hazen.hazentouvelib.HazentouveLib;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -25,6 +26,24 @@ public class HLBlockRegistry {
                                         .mapColor(MapColor.COLOR_LIGHT_BLUE)
                                         .lightLevel((state) -> 10)
                         ));
+
+    public static final DeferredBlock<Block> STEEL_BLOCK = BLOCKS.registerBlock("steel_block",
+            properties -> new Block(properties
+                    .mapColor(MapColor.METAL)
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops()
+                    .strength(0.8F)
+                    .sound(SoundType.METAL)
+            ));
+
+    public static final DeferredBlock<Block> CRUDE_METAL_BLOCK = BLOCKS.registerBlock("crude_metal_block",
+            properties -> new Block(properties
+                    .mapColor(MapColor.METAL)
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops()
+                    .strength(0.8F)
+                    .sound(SoundType.STONE)
+            ));
 
 
         private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

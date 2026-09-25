@@ -23,6 +23,7 @@ public class HLItemTagProvider extends ItemTagsProvider  {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+
         tag(HLTags.ENDER_MASK)
                 .add(Items.CARVED_PUMPKIN)
         ;

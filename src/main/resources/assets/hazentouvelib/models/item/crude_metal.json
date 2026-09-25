@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "hazentouvelib:item/materials/crude_metal"
+  }
+}
