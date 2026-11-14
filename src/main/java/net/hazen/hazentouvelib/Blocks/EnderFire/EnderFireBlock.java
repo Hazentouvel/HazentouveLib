@@ -1,17 +1,14 @@
-package net.hazen.hazentouvelib.Blocks.SoulFire;
+package net.hazen.hazentouvelib.Blocks.EnderFire;
 
 import com.google.common.collect.ImmutableMap;
 import com.mojang.serialization.MapCodec;
 import net.hazen.hazentouvelib.Datagen.HLTags;
-import net.hazen.hazentouvelib.Registries.HLBlockRegistry;
-import net.hazen.hazentouvelib.Registries.HLDamageTypes;
-import net.hazen.hazentouvelib.Registries.HLSounds;
+import net.hazen.hazentouvelib.Registries.*;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.util.RandomSource;
@@ -48,11 +45,11 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class SoulFireBlock extends BaseFireBlock {
+public class EnderFireBlock extends BaseFireBlock {
 
-    public static final MapCodec<SoulFireBlock> CODEC = simpleCodec(SoulFireBlock::new);
+    public static final MapCodec<EnderFireBlock> CODEC = simpleCodec(EnderFireBlock::new);
 
-    public static boolean EXPLOSION_CAUSES_SOUL_FIRE_FLAG = false;
+    public static boolean EXPLOSION_CAUSES_ENDER_FIRE_FLAG = false;
 
     public static final BooleanProperty NORTH = PipeBlock.NORTH;
 
@@ -84,7 +81,7 @@ public class SoulFireBlock extends BaseFireBlock {
 
     private static final float DAMAGE = 0.2F;
 
-    public SoulFireBlock(Properties settings) {
+    public EnderFireBlock(Properties settings) {
         super(settings, DAMAGE);
         this
             .registerDefaultState(
@@ -105,14 +102,14 @@ public class SoulFireBlock extends BaseFireBlock {
                         Collectors
                             .toMap(
                                 Function.identity(),
-                                SoulFireBlock::getShapeForState
+                                EnderFireBlock::getShapeForState
                             )
                     )
             );
     }
 
     @Override
-    public MapCodec<? extends SoulFireBlock> codec() {
+    public MapCodec<? extends EnderFireBlock> codec() {
         return CODEC;
     }
 
@@ -187,14 +184,14 @@ public class SoulFireBlock extends BaseFireBlock {
         }
     }
 
-    public static boolean tryPlaceSoulFire(Level world, BlockPos pos, Direction direction) {
+    public static boolean tryPlaceEnderFire(Level world, BlockPos pos, Direction direction) {
         BlockState state = world.getBlockState(pos);
 
-        if (SoulFireBlock.canBePlacedAt(world, pos, direction)) {
+        if (EnderFireBlock.canBePlacedAt(world, pos, direction)) {
             if (world
                 .setBlockAndUpdate(
                     pos,
-                    ((SoulFireBlock) HLBlockRegistry.SOUL_FIRE.get()).getStateForPosition(world, pos)
+                    ((EnderFireBlock) HLBlockRegistry.ENDER_FIRE.get()).getStateForPosition(world, pos)
                 )) {
                 world.gameEvent(null, GameEvent.BLOCK_PLACE, pos);
                 return true;
@@ -217,8 +214,8 @@ public class SoulFireBlock extends BaseFireBlock {
     @Override
     public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
         if (entity instanceof LivingEntity livingEntity) {
-            entity.hurt(HLDamageTypes.soulFire(world, null), DAMAGE);
-            SoulFireData.addSoulFireTicks(livingEntity, 3);
+            entity.hurt(HLDamageTypes.enderFire(world, null), DAMAGE);
+            EnderFireData.addEnderFireTicks(livingEntity, 3);
         }
     }
 
@@ -249,7 +246,7 @@ public class SoulFireBlock extends BaseFireBlock {
                         .infiniburn()
                 ) || blockState
                     .is(
-                        HLTags.Blocks.SOUL_FIRE_BASE_BLOCK
+                        HLTags.Blocks.ENDER_FIRE_BASE_BLOCK
                     );
             if (!isAboveInfiniburnBlock && random.nextFloat() < 0.01F) {
                 world.removeBlock(pos, false);
@@ -400,7 +397,7 @@ public class SoulFireBlock extends BaseFireBlock {
         double f;
 
         if (blockState.isFaceSturdy(world, blockPos, Direction.UP)) {
-            var particle = ParticleTypes.SMOKE;
+            var particle = HLParticleHelper.ENDER_EXPLOSION_PARTICLE;
             for (
                 i = 0;
                 i < 2;

@@ -25,7 +25,7 @@ public class HLDamageTypes {
     public static final ResourceKey<DamageType> SHADOW_MAGIC = register("shadow_magic");
     public static final ResourceKey<DamageType> COSMIC_MAGIC = register("cosmic_magic");
     public static final ResourceKey<DamageType> CORRUPT_MAGIC = register("corrupt_magic");
-    public static final ResourceKey<DamageType> SOUL_FIRE = register("soul_fire");
+    public static final ResourceKey<DamageType> ENDER_FIRE = register("ender_fire");
 
     public static void bootstrap(BootstrapContext<DamageType> context)
     {
@@ -35,18 +35,18 @@ public class HLDamageTypes {
         context.register(CORRUPT_MAGIC, new DamageType(CORRUPT_MAGIC.location().getPath(), DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0F));
     }
 
-    public static DamageSource soulFire(Level world) {
+    public static DamageSource enderFire(Level world) {
         return new SoulFireDamageSource(world, null);
     }
 
-    public static DamageSource soulFire(Level world, @Nullable LivingEntity attacker) {
+    public static DamageSource enderFire(Level world, @Nullable LivingEntity attacker) {
         return new SoulFireDamageSource(world, attacker);
     }
 
     public static class SoulFireDamageSource extends DamageSource {
 
         public SoulFireDamageSource(Level world, @Nullable LivingEntity attacker) {
-            super(world.damageSources().damageTypes.getHolderOrThrow(SOUL_FIRE), attacker);
+            super(world.damageSources().damageTypes.getHolderOrThrow(ENDER_FIRE), attacker);
         }
     }
 }

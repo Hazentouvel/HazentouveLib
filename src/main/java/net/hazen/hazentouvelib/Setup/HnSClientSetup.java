@@ -1,8 +1,10 @@
 package net.hazen.hazentouvelib.Setup;
 
+import net.hazen.hazentouvelib.Entities.SoulFlameRenderer;
 import net.hazen.hazentouvelib.HazentouveLib;
 import net.hazen.hazentouvelib.Particle.HLGenericParticle;
 import net.hazen.hazentouvelib.Particle.SoulFlameLavaParticle;
+import net.hazen.hazentouvelib.Registries.HLEntityRegistry;
 import net.hazen.hazentouvelib.Registries.HLParticleRegistry;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -15,6 +17,7 @@ public class HnSClientSetup {
     @SubscribeEvent
     public static void registerRenderer(EntityRenderersEvent.RegisterRenderers event) {
 
+        event.registerEntityRenderer(HLEntityRegistry.SOUL_FLAME_BOLT.get(), SoulFlameRenderer::new);
     }
 
     @SubscribeEvent

@@ -1,6 +1,6 @@
 package net.hazen.hazentouvelib.Setup;
 
-import net.hazen.hazentouvelib.Blocks.SoulFire.SoulFireData;
+import net.hazen.hazentouvelib.Blocks.EnderFire.EnderFireData;
 import net.hazen.hazentouvelib.HazentouveLib;
 import net.hazen.hazentouvelib.Items.Armor.HLMessageArmorKey;
 import net.hazen.hazentouvelib.Items.Curios.HLMessageCurioKey;
@@ -24,6 +24,6 @@ public class HLPayloadHandler {
         payloadRegistrar.playToServer(HLMessageItemKey.TYPE, HLMessageItemKey.STREAM_CODEC, HLMessageItemKey::handle);
         payloadRegistrar.playToServer(HLMessageCurioKey.TYPE, HLMessageCurioKey.STREAM_CODEC, HLMessageCurioKey::handle);
 
-        payloadRegistrar.playToClient(SoulFireData.Payload.TYPE, SoulFireData.Payload.CODEC, SoulFireData.Payload::execute);
+        payloadRegistrar.playToClient(EnderFireData.Payload.TYPE, EnderFireData.Payload.CODEC, EnderFireData.Payload::execute);
     }
 }

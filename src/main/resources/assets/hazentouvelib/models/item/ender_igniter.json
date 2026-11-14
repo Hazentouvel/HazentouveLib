@@ -3,8 +3,8 @@
   "render_type": "cutout",
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "hazentouvelib:item/misc/soul_igniter",
-    "layer1": "hazentouvelib:item/misc/soul_igniter_glowmask"
+    "layer0": "hazentouvelib:item/misc/ender_igniter",
+    "layer1": "hazentouvelib:item/misc/ender_igniter_glowmask"
   },
   "neoforge_data": {
     "layers": {

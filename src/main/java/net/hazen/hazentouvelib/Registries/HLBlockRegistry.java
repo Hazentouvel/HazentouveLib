@@ -1,6 +1,6 @@
 package net.hazen.hazentouvelib.Registries;
 
-import net.hazen.hazentouvelib.Blocks.SoulFire.SoulFireBlock;
+import net.hazen.hazentouvelib.Blocks.EnderFire.EnderFireBlock;
 import net.hazen.hazentouvelib.HazentouveLib;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -18,12 +18,12 @@ public class HLBlockRegistry {
         public static final DeferredRegister.Blocks BLOCKS =
                 DeferredRegister.createBlocks(HazentouveLib.MOD_ID);
 
-        public static final DeferredBlock<Block> SOUL_FIRE = registerBlock("soul_fire",
-                () -> new SoulFireBlock(
+        public static final DeferredBlock<Block> ENDER_FIRE = registerBlock("ender_fire",
+                () -> new EnderFireBlock(
                         BlockBehaviour.Properties
                                 .ofFullCopy(FIRE)
                                 .noLootTable()
-                                        .mapColor(MapColor.COLOR_LIGHT_BLUE)
+                                        .mapColor(MapColor.COLOR_PINK)
                                         .lightLevel((state) -> 10)
                         ));
 

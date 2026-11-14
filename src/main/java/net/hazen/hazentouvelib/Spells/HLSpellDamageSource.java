@@ -11,7 +11,7 @@ public class HLSpellDamageSource extends SpellDamageSource {
 
     AbstractSpell spell;
     int soulFireTime;
-    int iFrames = -1;
+    int enderFireTime;
 
     private HLSpellDamageSource(@NotNull Entity directEntity, @NotNull Entity causingEntity, @Nullable Vec3 damageSourcePosition, AbstractSpell spell) {
         super(directEntity, causingEntity, damageSourcePosition, spell);
@@ -27,17 +27,21 @@ public class HLSpellDamageSource extends SpellDamageSource {
         return this;
     }
 
+    public HLSpellDamageSource setEnderFireTicks(int enderFireTicks) {
+        this.enderFireTime = enderFireTicks;
+        return this;
+    }
+
     public int getSoulFireTime() {
         return this.soulFireTime;
     }
 
-    @Override
-    public int getIFrames() {
-        return this.iFrames;
+    public int getEnderFireTime() {
+        return this.enderFireTime;
     }
 
     @Override
     public boolean hasPostHitEffects() {
-        return this.getSoulFireTime() > 0;
+        return this.getSoulFireTime() > 0 || this.getEnderFireTime() > 0;
     }
 }

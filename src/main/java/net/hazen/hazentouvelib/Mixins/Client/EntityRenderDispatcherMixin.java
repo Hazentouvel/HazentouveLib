@@ -3,7 +3,7 @@ package net.hazen.hazentouvelib.Mixins.Client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import net.hazen.hazentouvelib.Blocks.SoulFire.SoulFireData;
+import net.hazen.hazentouvelib.Blocks.EnderFire.EnderFireData;
 import net.hazen.hazentouvelib.HazentouveLib;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
@@ -46,7 +46,7 @@ public abstract class EntityRenderDispatcherMixin {
         Quaternionf rotation,
         CallbackInfo ci
     ) {
-        if (entity instanceof LivingEntity livingEntity && SoulFireData.isOnSoulFire(livingEntity)) {
+        if (entity instanceof LivingEntity livingEntity && EnderFireData.isOnEnderFire(livingEntity)) {
             ci.cancel();
         }
     }
@@ -68,20 +68,20 @@ public abstract class EntityRenderDispatcherMixin {
         int light,
         CallbackInfo ci
     ) {
-        if (entity instanceof LivingEntity livingEntity && SoulFireData.isOnSoulFire(livingEntity)) {
-            renderSoulFire(matrices, vertexConsumers, entity);
+        if (entity instanceof LivingEntity livingEntity && EnderFireData.isOnEnderFire(livingEntity)) {
+            renderEnderFire(matrices, vertexConsumers, entity);
         }
     }
 
-    @Unique private void renderSoulFire(PoseStack matrices, MultiBufferSource vertexConsumers, Entity entity) {
+    @Unique private void renderEnderFire(PoseStack matrices, MultiBufferSource vertexConsumers, Entity entity) {
         TextureAtlasSprite sprite = Minecraft
             .getInstance()
             .getTextureAtlas(InventoryMenu.BLOCK_ATLAS)
-            .apply(HazentouveLib.id("block/soul_fire_0"));
+            .apply(HazentouveLib.id("block/ender_fire_0"));
         TextureAtlasSprite sprite2 = Minecraft
             .getInstance()
             .getTextureAtlas(InventoryMenu.BLOCK_ATLAS)
-            .apply(HazentouveLib.id("block/soul_fire_1"));
+            .apply(HazentouveLib.id("block/ender_fire_1"));
         matrices.pushPose();
         float f = entity.getBbWidth() * 1.4F;
         matrices.scale(f, f, f);

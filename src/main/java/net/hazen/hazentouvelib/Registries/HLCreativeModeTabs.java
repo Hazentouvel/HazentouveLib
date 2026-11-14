@@ -41,7 +41,7 @@ public class HLCreativeModeTabs {
                         output.accept(HLItemRegistry.COSMIC_RUNE.get());
 
                         //Misc
-                        output.accept(HLItemRegistry.SOUL_IGNITER.get());
+                        output.accept(HLItemRegistry.ENDER_IGNITER.get());
 
 
 

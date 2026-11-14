@@ -4,6 +4,7 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.illusivesoulworks.caelus.api.CaelusApi;
 import io.redspace.ironsspellbooks.item.curios.CurioBaseItem;
+import net.hazen.hazentouvelib.HazentouveLib;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
@@ -24,6 +25,8 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import top.theillusivec4.curios.api.SlotContext;
 
 public abstract class WingCurioItem extends CurioBaseItem implements GeoItem, IItemExtension {
+    private static final Holder<Attribute> FALL_FLY_ATTRIBUTE = CaelusApi.getInstance().getFallFlyingAttribute();
+    private static final ResourceLocation WINGS_CURIO = ResourceLocation.fromNamespaceAndPath(HazentouveLib.MOD_ID, "wings_curio_flight");
 
     private final AnimatableInstanceCache cache =
             GeckoLibUtil.createInstanceCache(this);
@@ -34,9 +37,11 @@ public abstract class WingCurioItem extends CurioBaseItem implements GeoItem, II
 
     @Override
     public Multimap<Holder<Attribute>, AttributeModifier> getAttributeModifiers(SlotContext slotContext, ResourceLocation id, ItemStack stack) {
-        Multimap<Holder<Attribute>, AttributeModifier> attr = LinkedHashMultimap.create();
-        CaelusApi.getInstance().getFallFlyingAttribute();
-        return attr;
+        Multimap<Holder<Attribute>, AttributeModifier> attributes = LinkedHashMultimap.create();
+
+        attributes.put(FALL_FLY_ATTRIBUTE, new AttributeModifier(WINGS_CURIO, 1.0D, AttributeModifier.Operation.ADD_VALUE));
+
+        return attributes;
     }
 
     @Override

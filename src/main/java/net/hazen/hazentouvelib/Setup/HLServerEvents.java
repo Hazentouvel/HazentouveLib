@@ -1,12 +1,10 @@
 package net.hazen.hazentouvelib.Setup;
 
-import io.redspace.ironsspellbooks.api.entity.IMagicEntity;
 import io.redspace.ironsspellbooks.api.events.SpellPreCastEvent;
 import io.redspace.ironsspellbooks.damage.DamageSources;
-import io.redspace.ironsspellbooks.entity.mobs.abstract_spell_casting_mob.AbstractSpellCastingMob;
 import net.hazen.hazentouvelib.Registries.HLDamageTypes;
 import net.hazen.hazentouvelib.Registries.HLEffects;
-import net.hazen.hazentouvelib.Blocks.SoulFire.SoulFireData;
+import net.hazen.hazentouvelib.Blocks.EnderFire.EnderFireData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -53,9 +51,9 @@ public class HLServerEvents {
                     return;
         }
         if (living.level().isClientSide()) {
-                    SoulFireData.clientTick(living);
+                    EnderFireData.clientTick(living);
         } else {
-                    SoulFireData.serverTick(living);
+                    EnderFireData.serverTick(living);
         }
     }
 }

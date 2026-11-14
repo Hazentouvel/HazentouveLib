@@ -241,8 +241,8 @@ public class HLTags {
     public static final TagKey<EntityType<?>> SPAWNS_OF_ENDER = TagKey
             .create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(HazentouveLib.MOD_ID, "spawns_of_ender"));
 
-    public static final TagKey<EntityType<?>> SOUL_FIRE_IMMUNE = TagKey
-            .create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(HazentouveLib.MOD_ID, "soul_fire_immune"));
+    public static final TagKey<EntityType<?>> ENDER_FIRE_IMMUNE = TagKey
+            .create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(HazentouveLib.MOD_ID, "ender_fire_immune"));
 
     public static class Blocks {
 
@@ -252,8 +252,8 @@ public class HLTags {
         public static final TagKey<Block> INCORRECT_FOR_MITHRIL_TOOl = BlockTags
                 .create(ResourceLocation.parse(ResourceLocation.fromNamespaceAndPath(HazentouveLib.MOD_ID, "incorrect_for_mithril_tool").toString()));
 
-        public static final TagKey<Block> SOUL_FIRE_BASE_BLOCK = BlockTags
-                .create(ResourceLocation.parse(ResourceLocation.fromNamespaceAndPath(HazentouveLib.MOD_ID, "soul_fire_base_block").toString()));
+        public static final TagKey<Block> ENDER_FIRE_BASE_BLOCK = BlockTags
+                .create(ResourceLocation.parse(ResourceLocation.fromNamespaceAndPath(HazentouveLib.MOD_ID, "ender_fire_base_block").toString()));
 
     }
 

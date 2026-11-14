@@ -1,6 +1,6 @@
 package net.hazen.hazentouvelib.Items.Misc;
 
-import net.hazen.hazentouvelib.Blocks.SoulFire.SoulFireBlock;
+import net.hazen.hazentouvelib.Blocks.EnderFire.EnderFireBlock;
 import net.hazen.hazentouvelib.Registries.HLBlockRegistry;
 import net.hazen.hazentouvelib.Registries.HLSounds;
 import net.minecraft.ChatFormatting;
@@ -12,7 +12,6 @@ import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
@@ -28,7 +27,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 
 import java.util.List;
 
-public class SoulIgniterItem extends FlintAndSteelItem {
+public class EnderIgniterItem extends FlintAndSteelItem {
 
     public static final DispenseItemBehavior DISPENSER_BEHAVIOR = new OptionalDispenseItemBehavior() {
         protected ItemStack execute(BlockSource pointer, ItemStack stack) {
@@ -38,7 +37,7 @@ public class SoulIgniterItem extends FlintAndSteelItem {
                                          .getValue(DispenserBlock.FACING);
             BlockPos blockPos = pointer.pos()
                                        .relative(direction);
-            if (SoulFireBlock.tryPlaceSoulFire(world, blockPos, direction)) {
+            if (EnderFireBlock.tryPlaceEnderFire(world, blockPos, direction)) {
                 stack.hurtAndBreak(
                     1, world, null, item -> {
                     }
@@ -51,14 +50,14 @@ public class SoulIgniterItem extends FlintAndSteelItem {
         }
     };
 
-    public SoulIgniterItem(Properties settings) {
+    public EnderIgniterItem(Properties settings) {
         super(settings);
     }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
         super.appendHoverText(stack, context, tooltip, type);
-        tooltip.add(Component.translatable("item.hazentouvelib.soul_igniter.description")
+        tooltip.add(Component.translatable("item.hazentouvelib.ender_igniter.description")
                              .withStyle(ChatFormatting.GRAY));
     }
 
@@ -69,15 +68,15 @@ public class SoulIgniterItem extends FlintAndSteelItem {
         BlockPos pos = context.getClickedPos();
         BlockPos blockOnSide = pos.relative(context.getClickedFace());
 
-        if (SoulFireBlock.canBePlacedAt(world, blockOnSide, context.getHorizontalDirection())) {
+        if (EnderFireBlock.canBePlacedAt(world, blockOnSide, context.getHorizontalDirection())) {
             world.playSound(
                 player, blockOnSide, HLSounds.SOUL_FIRE_IGNITE.get(), SoundSource.BLOCKS, 1.0F,
                 world.getRandom()
                      .nextFloat() * 0.4F + 0.8F
             );
-            BlockState primordialFireState
-                = ((SoulFireBlock) HLBlockRegistry.SOUL_FIRE.get()).getStateForPosition(world, blockOnSide);
-            world.setBlock(blockOnSide, primordialFireState, 11);
+            BlockState enderFireState
+                = ((EnderFireBlock) HLBlockRegistry.ENDER_FIRE.get()).getStateForPosition(world, blockOnSide);
+            world.setBlock(blockOnSide, enderFireState, 11);
             world.gameEvent(player, GameEvent.BLOCK_PLACE, pos);
 
             ItemStack stack = context.getItemInHand();

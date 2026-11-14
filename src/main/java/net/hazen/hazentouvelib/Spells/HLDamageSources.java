@@ -1,6 +1,7 @@
 package net.hazen.hazentouvelib.Spells;
 
-import net.hazen.hazentouvelib.Blocks.SoulFire.SoulFireData;
+import io.redspace.ironslib.soulfire.SoulFireHelper;
+import net.hazen.hazentouvelib.Blocks.EnderFire.EnderFireData;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
@@ -20,7 +21,11 @@ public class HLDamageSources {
 
             if (spellDamageSource.getSoulFireTime() > 0) {
 
-                SoulFireData.addSoulFireTicks(target, spellDamageSource.getSoulFireTime());
+                SoulFireHelper.igniteSoul(target, spellDamageSource.getSoulFireTime());
+            }
+            if (spellDamageSource.getEnderFireTime() > 0) {
+
+                EnderFireData.setEnderFireTicks(target, spellDamageSource.getEnderFireTime());
             }
         }
     }

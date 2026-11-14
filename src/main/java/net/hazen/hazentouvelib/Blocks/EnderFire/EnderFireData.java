@@ -1,9 +1,7 @@
-package net.hazen.hazentouvelib.Blocks.SoulFire;
+package net.hazen.hazentouvelib.Blocks.EnderFire;
 
 import com.mojang.serialization.Codec;
 import net.hazen.hazentouvelib.Datagen.HLTags;
-import net.hazen.hazentouvelib.Registries.HLDamageTypes;
-import net.hazen.hazentouvelib.Registries.HLSounds;
 import net.hazen.hazentouvelib.Setup.HLAttachmentUtil;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.particles.ParticleTypes;
@@ -27,13 +25,12 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.attachment.AttachmentType;
-import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.minecraft.core.Holder;
 import java.util.Optional;
 import net.minecraft.core.registries.Registries;
 
-public class SoulFireData {
+public class EnderFireData {
     public static final float BASE_PERCENT_DAMAGE = 0.01F;
     public static final float FIRE_RESISTANCE_DAMAGE_RESISTANCE = 0.25F;
     public static final float FIRE_PROT_DAMAGE_RESISTANCE = 0.05F;
@@ -72,7 +69,7 @@ public class SoulFireData {
             new Payload(entity.getId(), entity.getData(ATTACHMENT)), entity.level(), entity.blockPosition());
     }
 
-    public static void setSoulFireTicks(LivingEntity entity, long ticks) {
+    public static void setEnderFireTicks(LivingEntity entity, long ticks) {
         entity.setData(ATTACHMENT, ticks);
         try {
             entity.setRemainingFireTicks((int) ticks);
@@ -81,7 +78,7 @@ public class SoulFireData {
         sync(entity);
     }
 
-    public static void addSoulFireTicks(LivingEntity entity, int ticks) {
+    public static void addEnderFireTicks(LivingEntity entity, int ticks) {
         int i = getEquipmentLevel(
             entity.level()
                   .registryAccess(), Enchantments.FIRE_PROTECTION, entity
@@ -98,7 +95,7 @@ public class SoulFireData {
         sync(entity);
     }
 
-    public static boolean isOnSoulFire(LivingEntity entity) {
+    public static boolean isOnEnderFire(LivingEntity entity) {
         return entity.getData(ATTACHMENT) > 0;
     }
 
@@ -112,32 +109,32 @@ public class SoulFireData {
         return true;
     }
 
-    public static final float SOUL_FIRE_DAMAGE = 2.0F;
-    public static final int SOUL_FIRE_DAMAGE_INTERVAL = 10;
+    public static final float ENDER_FIRE_DAMAGE = 2.0F;
+    public static final int ENDER_FIRE_DAMAGE_INTERVAL = 10;
 
     @OnlyIn(Dist.CLIENT)
-    public static SoulFireBurnSound soundInstance;
+    public static EnderFireBurnSound soundInstance;
 
     public static void serverTick(LivingEntity entity) {
-        long soulFireTicks = entity.getData(ATTACHMENT);
+        long enderlFireTicks = entity.getData(ATTACHMENT);
 
-        if (soulFireTicks <= 0)
+        if (enderlFireTicks <= 0)
             return;
-        if (entity.getType().is(HLTags.SOUL_FIRE_IMMUNE)) {
+        if (entity.getType().is(HLTags.ENDER_FIRE_IMMUNE)) {
             entity.setData(ATTACHMENT, 0L);
             try { entity.setRemainingFireTicks(0); } catch (NoSuchMethodError ignored) {}
             sync(entity);
             return;
         }
-        soulFireTicks -= entity.getFluidHeight(FluidTags.WATER) > 0 ? 3 : 1;
+        enderlFireTicks -= entity.getFluidHeight(FluidTags.WATER) > 0 ? 3 : 1;
 
-        entity.setData(ATTACHMENT, Math.max(soulFireTicks, 0L));
+        entity.setData(ATTACHMENT, Math.max(enderlFireTicks, 0L));
 
         try {
             entity.setRemainingFireTicks(entity.getData(ATTACHMENT).intValue());
         } catch (NoSuchMethodError ignored) {}
 
-        if (soulFireTicks <= 0) {
+        if (enderlFireTicks <= 0) {
             sync(entity);
         }
     }
@@ -176,9 +173,9 @@ public class SoulFireData {
 
     @OnlyIn(Dist.CLIENT)
     public static void clientTick(LivingEntity entity) {
-        var soulFireTicks = entity.getData(ATTACHMENT);
+        var enderFireTicks = entity.getData(ATTACHMENT);
 
-        if (soulFireTicks > 0) {
+        if (enderFireTicks > 0) {
 
             double fluidHeight = entity.getFluidHeight(FluidTags.WATER);
             if (fluidHeight > 0) {
@@ -217,7 +214,7 @@ public class SoulFireData {
             Payload::new
         );
 
-        public static final CustomPacketPayload.Type<Payload> TYPE = HLAttachmentUtil.create("soul_fire");
+        public static final CustomPacketPayload.Type<Payload> TYPE = HLAttachmentUtil.create("ender_fire");
 
         public static void execute(Payload payload, IPayloadContext context) {
             var level = context.player()
@@ -232,7 +229,7 @@ public class SoulFireData {
         }
     }
 
-    public static long getSoulFireTicks(LivingEntity entity) {
+    public static long getEnderFireTicks(LivingEntity entity) {
         return entity.getData(ATTACHMENT);
     }
 }

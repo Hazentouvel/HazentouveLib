@@ -2,6 +2,6 @@
   "parent": "minecraft:block/template_fire_side_alt",
   "render_type": "minecraft:cutout",
   "textures": {
-    "fire": "hazentouvelib:block/soul_fire_0"
+    "fire": "hazentouvelib:block/ender_fire_0"
   }
 }

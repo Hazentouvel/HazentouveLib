@@ -42,10 +42,10 @@
   "item.hazentouvelib.shadow_rune": "Shadow Rune",
   "item.hazentouvelib.cosmic_rune": "Cosmic Rune",
 
-  "item.hazentouvelib.soul_igniter": "Soul Igniter",
-  "item.hazentouvelib.soul_igniter.description": "Lights soul fire.",
+  "item.hazentouvelib.ender_igniter": "Ender Igniter",
+  "item.hazentouvelib.ender_igniter.description": "Lights ender fire.",
 
-  "block.hazentouvelib.soul_fire": "Soul Fire",
+  "block.hazentouvelib.ender_fire": "Ender Fire",
   "block.hazentouvelib.steel_block": "Steel Block",
   "block.hazentouvelib.crude_metal_block": "Crude Metal Block",
 
@@ -76,7 +76,7 @@
   "attribute.hazentouvelib.cosmic_spell_power": "Cosmic Spell Power",
   "attribute.hazentouvelib.cosmic_magic_resist": "Cosmic Magic Resistance",
 
-  "death.attack.soul_fire": "%1$s burnt to death",
+  "death.attack.ender_fire": "%1$s burnt to death",
 
   "death.attack.radiance_magic": "%1$s was overwhelmed by the light...",
   "death.attack.shadow_magic": "%1$s was consumed by darkness",

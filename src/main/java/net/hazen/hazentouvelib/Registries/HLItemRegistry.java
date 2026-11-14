@@ -3,7 +3,7 @@ package net.hazen.hazentouvelib.Registries;
 import io.redspace.ironsspellbooks.item.UpgradeOrbItem;
 import io.redspace.ironsspellbooks.registries.ComponentRegistry;
 import net.hazen.hazentouvelib.HazentouveLib;
-import net.hazen.hazentouvelib.Items.Misc.SoulIgniterItem;
+import net.hazen.hazentouvelib.Items.Misc.EnderIgniterItem;
 import net.hazen.hazentouvelib.Rarities.HLRarities;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.BlockItem;
@@ -96,12 +96,12 @@ public class HLItemRegistry {
     *** Misc
      */
 
-    //Soul Igniter
-    public static final DeferredHolder<Item, Item> SOUL_IGNITER = ITEMS.register("soul_igniter",
-            () -> new SoulIgniterItem(new Item.Properties()
+    //Ender Igniter
+    public static final DeferredHolder<Item, Item> ENDER_IGNITER = ITEMS.register("ender_igniter",
+            () -> new EnderIgniterItem(new Item.Properties()
                     .stacksTo(1)
                     .fireResistant()
-                    .rarity(HLRarities.FIRE_RARITY.getValue())
+                    .rarity(HLRarities.ENDER_RARITY.getValue())
                     .component(DataComponents.UNBREAKABLE, new Unbreakable(false))
             )
     );

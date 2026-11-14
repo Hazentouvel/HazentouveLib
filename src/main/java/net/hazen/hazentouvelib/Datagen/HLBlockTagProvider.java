@@ -36,8 +36,8 @@ public class HLBlockTagProvider extends BlockTagsProvider {
                 .addTag(Tags.Blocks.NEEDS_NETHERITE_TOOL)
         ;
 
-        tag(HLTags.Blocks.SOUL_FIRE_BASE_BLOCK)
-                .add(Block.byItem(Items.SCULK_CATALYST))
+        tag(HLTags.Blocks.ENDER_FIRE_BASE_BLOCK)
+                .add(Block.byItem(Items.END_STONE))
         ;
 
     }

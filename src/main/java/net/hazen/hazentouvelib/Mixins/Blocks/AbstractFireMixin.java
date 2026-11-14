@@ -1,6 +1,6 @@
 package net.hazen.hazentouvelib.Mixins.Blocks;
 
-import net.hazen.hazentouvelib.Blocks.SoulFire.SoulFireBlock;
+import net.hazen.hazentouvelib.Blocks.EnderFire.EnderFireBlock;
 import net.hazen.hazentouvelib.Datagen.HLTags;
 import net.hazen.hazentouvelib.Registries.HLBlockRegistry;
 import net.minecraft.core.BlockPos;
@@ -27,12 +27,12 @@ public abstract class AbstractFireMixin {
         BlockState blockstate = world.getBlockState(blockpos);
         if (blockstate
             .is(
-                HLTags.Blocks.SOUL_FIRE_BASE_BLOCK
-            ) || SoulFireBlock.EXPLOSION_CAUSES_SOUL_FIRE_FLAG) {
-            SoulFireBlock.EXPLOSION_CAUSES_SOUL_FIRE_FLAG = false;
+                HLTags.Blocks.ENDER_FIRE_BASE_BLOCK
+            ) || EnderFireBlock.EXPLOSION_CAUSES_ENDER_FIRE_FLAG) {
+            EnderFireBlock.EXPLOSION_CAUSES_ENDER_FIRE_FLAG = false;
             cir
                 .setReturnValue(
-                    ((SoulFireBlock) HLBlockRegistry.SOUL_FIRE.get()).getStateForPosition(world, pos)
+                    ((EnderFireBlock) HLBlockRegistry.ENDER_FIRE.get()).getStateForPosition(world, pos)
                 );
         }
     }

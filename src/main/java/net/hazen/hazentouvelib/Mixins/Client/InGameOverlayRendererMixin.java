@@ -8,7 +8,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.Tesselator;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.math.Axis;
-import net.hazen.hazentouvelib.Blocks.SoulFire.SoulFireData;
+import net.hazen.hazentouvelib.Blocks.EnderFire.EnderFireData;
 import net.hazen.hazentouvelib.HazentouveLib;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GameRenderer;
@@ -33,10 +33,10 @@ public class InGameOverlayRendererMixin {
             value = "HEAD"
         )
     )
-    private static void renderPrimordialFire(Minecraft client, PoseStack matrices, CallbackInfo ci) {
+    private static void renderEnderFire(Minecraft client, PoseStack matrices, CallbackInfo ci) {
         if (!client.player.isSpectator()) {
-            if (SoulFireData.isOnSoulFire(client.player)) {
-                renderPrimordialFireOverlay(client, matrices);
+            if (EnderFireData.isOnEnderFire(client.player)) {
+                renderEnderFireOverlay(client, matrices);
             }
         }
     }
@@ -46,21 +46,21 @@ public class InGameOverlayRendererMixin {
             value = "HEAD"
         ), cancellable = true
     )
-    private static void cancelFireOverlayWithPrimordialFire(Minecraft client, PoseStack matrices, CallbackInfo ci) {
-        if (SoulFireData.isOnSoulFire(client.player)) {
+    private static void cancelFireOverlayWithEnderFire(Minecraft client, PoseStack matrices, CallbackInfo ci) {
+        if (EnderFireData.isOnEnderFire(client.player)) {
             ci.cancel();
         }
     }
 
     // [VanillaCopy] uses different texture for fire overlay
-    @Unique private static void renderPrimordialFireOverlay(Minecraft client, PoseStack matrices) {
+    @Unique private static void renderEnderFireOverlay(Minecraft client, PoseStack matrices) {
         RenderSystem.setShader(GameRenderer::getPositionTexColorShader);
         RenderSystem.depthFunc(519);
         RenderSystem.depthMask(false);
         RenderSystem.enableBlend();
         TextureAtlasSprite sprite = client
             .getTextureAtlas(InventoryMenu.BLOCK_ATLAS)
-            .apply(HazentouveLib.id("block/soul_fire_1"));
+            .apply(HazentouveLib.id("block/ender_fire_0"));
         RenderSystem.setShaderTexture(0, sprite.atlasLocation());
         float f = sprite.getU0();
         float g = sprite.getU1();

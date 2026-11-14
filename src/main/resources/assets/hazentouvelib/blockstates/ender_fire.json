@@ -3,10 +3,10 @@
     {
       "apply": [
         {
-          "model": "hazentouvelib:block/soul_fire_floor0"
+          "model": "hazentouvelib:block/ender_fire_floor0"
         },
         {
-          "model": "hazentouvelib:block/soul_fire_floor1"
+          "model": "hazentouvelib:block/ender_fire_floor1"
         }
       ],
       "when": {
@@ -20,16 +20,16 @@
     {
       "apply": [
         {
-          "model": "hazentouvelib:block/soul_fire_up0"
+          "model": "hazentouvelib:block/ender_fire_up0"
         },
         {
-          "model": "hazentouvelib:block/soul_fire_up1"
+          "model": "hazentouvelib:block/ender_fire_up1"
         },
         {
-          "model": "hazentouvelib:block/soul_fire_up_alt0"
+          "model": "hazentouvelib:block/ender_fire_up_alt0"
         },
         {
-          "model": "hazentouvelib:block/soul_fire_up_alt1"
+          "model": "hazentouvelib:block/ender_fire_up_alt1"
         }
       ],
       "when": {
@@ -39,16 +39,16 @@
     {
       "apply": [
         {
-          "model": "hazentouvelib:block/soul_fire_side0"
+          "model": "hazentouvelib:block/ender_fire_side0"
         },
         {
-          "model": "hazentouvelib:block/soul_fire_side1"
+          "model": "hazentouvelib:block/ender_fire_side1"
         },
         {
-          "model": "hazentouvelib:block/soul_fire_side_alt0"
+          "model": "hazentouvelib:block/ender_fire_side_alt0"
         },
         {
-          "model": "hazentouvelib:block/soul_fire_side_alt1"
+          "model": "hazentouvelib:block/ender_fire_side_alt1"
         }
       ],
       "when": {
@@ -69,19 +69,19 @@
     {
       "apply": [
         {
-          "model": "hazentouvelib:block/soul_fire_side0",
+          "model": "hazentouvelib:block/ender_fire_side0",
           "y": 180
         },
         {
-          "model": "hazentouvelib:block/soul_fire_side1",
+          "model": "hazentouvelib:block/ender_fire_side1",
           "y": 180
         },
         {
-          "model": "hazentouvelib:block/soul_fire_side_alt0",
+          "model": "hazentouvelib:block/ender_fire_side_alt0",
           "y": 180
         },
         {
-          "model": "hazentouvelib:block/soul_fire_side_alt1",
+          "model": "hazentouvelib:block/ender_fire_side_alt1",
           "y": 180
         }
       ],
@@ -103,19 +103,19 @@
     {
       "apply": [
         {
-          "model": "hazentouvelib:block/soul_fire_side0",
+          "model": "hazentouvelib:block/ender_fire_side0",
           "y": 270
         },
         {
-          "model": "hazentouvelib:block/soul_fire_side1",
+          "model": "hazentouvelib:block/ender_fire_side1",
           "y": 270
         },
         {
-          "model": "hazentouvelib:block/soul_fire_side_alt0",
+          "model": "hazentouvelib:block/ender_fire_side_alt0",
           "y": 270
         },
         {
-          "model": "hazentouvelib:block/soul_fire_side_alt1",
+          "model": "hazentouvelib:block/ender_fire_side_alt1",
           "y": 270
         }
       ],
@@ -137,19 +137,19 @@
     {
       "apply": [
         {
-          "model": "hazentouvelib:block/soul_fire_side0",
+          "model": "hazentouvelib:block/ender_fire_side0",
           "y": 90
         },
         {
-          "model": "hazentouvelib:block/soul_fire_side1",
+          "model": "hazentouvelib:block/ender_fire_side1",
           "y": 90
         },
         {
-          "model": "hazentouvelib:block/soul_fire_side_alt0",
+          "model": "hazentouvelib:block/ender_fire_side_alt0",
           "y": 90
         },
         {
-          "model": "hazentouvelib:block/soul_fire_side_alt1",
+          "model": "hazentouvelib:block/ender_fire_side_alt1",
           "y": 90
         }
       ],

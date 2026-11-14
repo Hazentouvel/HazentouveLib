@@ -1,4 +1,4 @@
-package net.hazen.hazentouvelib.Blocks.SoulFire;
+package net.hazen.hazentouvelib.Blocks.EnderFire;
 
 import net.hazen.hazentouvelib.Registries.HLSounds;
 import net.minecraft.client.resources.sounds.AbstractSoundInstance;
@@ -7,12 +7,12 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
 
-public class SoulFireBurnSound extends AbstractSoundInstance implements TickableSoundInstance {
+public class EnderFireBurnSound extends AbstractSoundInstance implements TickableSoundInstance {
 
     private final Player player;
     private int fadeInTicks;
 
-    public SoulFireBurnSound(Player player) {
+    public EnderFireBurnSound(Player player) {
         super(HLSounds.SOUL_FIRE_HURT.get(), SoundSource.PLAYERS, player.getRandom());
         this.looping = true;
         this.delay = 0;
@@ -32,6 +32,6 @@ public class SoulFireBurnSound extends AbstractSoundInstance implements Tickable
 
     @Override
     public boolean isStopped() {
-        return player == null || player.isRemoved() || !SoulFireData.isOnSoulFire(player);
+        return player == null || player.isRemoved() || !EnderFireData.isOnEnderFire(player);
     }
 }
